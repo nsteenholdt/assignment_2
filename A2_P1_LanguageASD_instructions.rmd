@@ -131,7 +131,9 @@ Remember to plot the data first and then to run a statistical test.
 - Which variable(s) should be included as random factors?
 
 ```{r ex2, include = FALSE}
-ggplot(df_train, aes(VISIT, CHI_MLU, colour = Diagnosis)) + stat_summary(fun.y = mean, geom = "point") + stat_summary(fun.y = mean, geom = "line", aes(group=Diagnosis))
+ggplot(df_train, aes(VISIT, CHI_MLU, colour = Diagnosis)) + stat_summary(fun.y = mean, geom = "point") + stat_summary(fun.y = mean, geom = "line", aes(group=Diagnosis))+ geom_smooth(method = lm, se=F) + labs(x="Visit", y="Mean Length of Utterances")+ ggtitle("Language Development in Children with ASD Compared to TD")
+
+
 
 ggplot(df_train, aes(VISIT, CHI_MLU, colour = Diagnosis)) + geom_smooth(method = lm)
 
